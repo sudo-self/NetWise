@@ -16,8 +16,6 @@ pnpm install
 # yarn
 yarn install
 
-# bun
-bun install
 ```
 
 ## Development Server
@@ -34,8 +32,6 @@ pnpm run dev
 # yarn
 yarn dev
 
-# bun
-bun run dev
 ```
 
 ## Production
@@ -52,8 +48,6 @@ pnpm run build
 # yarn
 yarn build
 
-# bun
-bun run build
 ```
 
 Locally preview production build:
@@ -68,6 +62,4 @@ pnpm run preview
 # yarn
 yarn preview
 
-# bun
-bun run preview
 ```
