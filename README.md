@@ -1,6 +1,6 @@
 # NextWise Technicians Toolkit
 
-[Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction)
+<img width="1440" alt="Screenshot 2024-10-04 at 7 41 30 AM" src="https://github.com/user-attachments/assets/a3fb5014-e8dc-49ca-9413-5b4e1f5caf66">
 
 ## Setup
 
