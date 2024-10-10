@@ -71,6 +71,9 @@
       "public": [
         "../public"
       ],
+      "public/*": [
+        "../public/*"
+      ],
       "#app": [
         "../node_modules/.pnpm/nuxt@3.13.2_@parcel+watcher@2.4.1_@types+node@22.7.4_ioredis@5.4.1_magicast@0.3.5_rollup@4.24_2k7m6tt7b46bgsxaiirz4m7r34/node_modules/nuxt/dist/app"
       ],
@@ -87,7 +90,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/ab0ee0ff-59b0-4021-9b1e-0824f6179cdf.json"
+        "./manifest/meta/dev"
       ],
       "#build": [
         "."

@@ -1,21 +1,22 @@
 <template>
   <div>
-    
-    <button
-      class="floating-button"
-      @mousedown="startDrag"
-      @touchstart="startDrag"
-      :style="{ backgroundImage: `url(${buttonImage})` }"
-      @click="togglePopup"
-      ref="floatingButton"
-    ></button>
+    <div class="tooltip-container">
+      <button
+        class="floating-button"
+        @mousedown="startDrag"
+        @touchstart="startDrag"
+        :style="{ backgroundImage: `url(${buttonImage})` }"
+        @click="togglePopup"
+        ref="floatingButton"
+      >
+        <span class="tooltip">Speed Test</span>
+      </button>
+    </div>
 
-  
     <div v-if="showPopup" class="popup" @click.self="togglePopup">
       <div class="popup-content">
-        
         <iframe
-          src="https://play.vuejs.org/"
+          src="https://Fast.com"
           class="popup-iframe"
           frameborder="0"
         ></iframe>
@@ -30,8 +31,7 @@ export default {
   data() {
     return {
       showPopup: false,
-      buttonImage:
-        "https://pub-c1de1cb456e74d6bbbee111ba9e6c757.r2.dev/EmojioneMonotoneOwl.png",
+      buttonImage: "https://pub-c1de1cb456e74d6bbbee111ba9e6c757.r2.dev/EmojioneMonotoneOwl.png",
       isDragging: false,
       offset: { x: 0, y: 0 },
     };
@@ -42,16 +42,12 @@ export default {
     },
     startDrag(event) {
       this.isDragging = true;
-
-    
       event.preventDefault();
 
-    
       const button = this.$refs.floatingButton;
       this.offset.x = (event.clientX || event.touches[0].clientX) - button.getBoundingClientRect().left;
       this.offset.y = (event.clientY || event.touches[0].clientY) - button.getBoundingClientRect().top;
 
-     
       document.addEventListener("mousemove", this.onDrag);
       document.addEventListener("mouseup", this.stopDrag);
       document.addEventListener("touchmove", this.onDrag);
@@ -60,14 +56,12 @@ export default {
     onDrag(event) {
       if (!this.isDragging) return;
 
- 
       event.preventDefault();
 
       const button = this.$refs.floatingButton;
       const x = (event.clientX || event.touches[0].clientX) - this.offset.x;
       const y = (event.clientY || event.touches[0].clientY) - this.offset.y;
 
-     
       button.style.left = `${x}px`;
       button.style.top = `${y}px`;
     },
@@ -99,6 +93,19 @@ export default {
   z-index: 1000;
 }
 
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -114,7 +121,7 @@ export default {
 .popup-content {
   background: none;
   width: 100%;
-  max-width: 800px; 
+  max-width: 800px;
   height: 90vh;
   box-shadow: none;
   border: none;
@@ -127,15 +134,16 @@ export default {
   border: none;
 }
 
-
 @media (max-width: 600px) {
   .floating-button {
     width: 40px;
     height: 40px;
   }
-
   .popup-content {
-    height: 80vh; 
+    height: 80vh;
   }
 }
 </style>
+
+
+

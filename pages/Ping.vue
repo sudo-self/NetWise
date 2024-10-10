@@ -2,17 +2,13 @@
   <div class="wrapper">
     <div class="margins">
       <h2 class="sub-heading">PING Toolkit</h2>
-   <div class="flex justify-end mt-4">
-            <router-link to="/" class="home-button">
-              <button class="action-button">Home</button>
-            </router-link>
-          </div>
-      <p class="description">Check the reachability of a host by sending ping requests.</p>
+      <div class="flex justify-end mt-4">
+        <router-link to="/" class="home-button">
+          <button class="action-button">Home</button>
+        </router-link>
+      </div>
+      <h4 class="description">Check the reachability of a host by sending ping requests.</h4>
 
-
-
-
-      
       <div class="input-group">
         <input 
           type="text" 
@@ -38,6 +34,38 @@
       </div>
 
       <div v-if="error" class="error-message">{{ error }}</div>
+
+      <h3 class="sub-heading mt-8">Ping Command</h3>
+      <p class="description">
+        Ping is a network utility tool used to test the reachability of a host on an Internet Protocol (IP) network. 
+        It sends Internet Control Message Protocol (ICMP) Echo Request messages to the target host and waits for 
+        an Echo Reply. The results provide information on the IP address of the host, the number of requests sent, 
+        the packet loss percentage, and the round-trip time it takes for the packets to travel to the host and back.
+      </p>
+
+      <h3 class="sub-heading mt-8">Examples</h3>
+      <ul class="record-list">
+        <li>
+          <span class="gradient__text">Example 1:</span>
+          <pre>PING google.com (142.250.190.14): 56 data bytes
+64 bytes from 142.250.190.14: icmp_seq=1 ttl=117 time=14.3 ms</pre>
+        </li>
+        <li>
+          <span class="gradient__text">Example 2:</span>
+          <pre>PING example.com (93.184.216.34): 56 data bytes
+64 bytes from 93.184.216.34: icmp_seq=1 ttl=59 time=15.7 ms</pre>
+        </li>
+        <li>
+          <span class="gradient__text">Example 3:</span>
+          <pre>PING localhost (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.038 ms</pre>
+        </li>
+        <li>
+          <span class="gradient__text">Example 4:</span>
+          <pre>PING non-existent-domain.com (0.0.0.0): 56 data bytes
+ping: non-existent-domain.com: Name or service not known</pre>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -137,23 +165,5 @@ const sendPing = async () => {
   -webkit-text-fill-color: transparent;
   animation: shine 1s linear infinite;
 }
-
-.action-button {
-  background-color: #12a87b;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease;
-}
-
-.action-button:hover {
-  background-color: #0fcf97;
-}
-
-
-
-
 </style>
 
