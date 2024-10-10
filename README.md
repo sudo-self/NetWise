@@ -18,48 +18,33 @@ yarn install
 
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
+## Page.vue 
 
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
+ <div class="modules_grid">
+          <div class="card relative">
+            <div class="layout">
+              <div class="group">
+                <h2 class="heading">IP Address Toolkit</h2>
+                <p class="description">IP toolkit to search, convert, and configure addresses.</p>
+              </div>
+              <div class="group actions">
+                <router-link to="/ip-toolkit">
+                  <button class="action-button">Enter</button>
+                </router-link>
+              </div>
+            </div>
+            <GameIconsOwl class="absolute bottom-2 right-2 w-6 h-6" />
+          </div>
 ```
 
-Locally preview production build:
+## VARS
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
+.env example
 
 ```
+MAC_LOOKUP_API_KEY=
+NUXT_MAC_LOOKUP_API_KEY=
+SITE_RELIC_API_KEY=
+```
+
