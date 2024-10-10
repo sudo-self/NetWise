@@ -42,6 +42,8 @@ export default {
       this.showPopup = !this.showPopup;
     },
     handleMouseDown(event) {
+      event.preventDefault(); // Prevent scrolling during touch
+
       const isTouch = event.type === "touchstart";
       const clientX = isTouch ? event.touches[0].clientX : event.clientX;
       const clientY = isTouch ? event.touches[0].clientY : event.clientY;
@@ -49,24 +51,24 @@ export default {
       // Store the starting position for drag
       this.startX = clientX;
       this.startY = clientY;
-      this.offset.x =
-        clientX - this.$refs.floatingButton.getBoundingClientRect().left;
-      this.offset.y =
-        clientY - this.$refs.floatingButton.getBoundingClientRect().top;
+      this.offset.x = clientX - this.$refs.floatingButton.getBoundingClientRect().left;
+      this.offset.y = clientY - this.$refs.floatingButton.getBoundingClientRect().top;
 
       document.addEventListener("mousemove", this.onDrag);
-      document.addEventListener("touchmove", this.onDrag);
+      document.addEventListener("touchmove", this.onDrag, { passive: false });
       document.addEventListener("mouseup", this.handleMouseUp);
       document.addEventListener("touchend", this.handleMouseUp);
     },
     onDrag(event) {
+      event.preventDefault();
+
       const clientX = event.type === "touchmove" ? event.touches[0].clientX : event.clientX;
       const clientY = event.type === "touchmove" ? event.touches[0].clientY : event.clientY;
 
       const deltaX = Math.abs(clientX - this.startX);
       const deltaY = Math.abs(clientY - this.startY);
 
-      if (deltaX > 5 || deltaY > 5) {
+      if (deltaX > 10 || deltaY > 10) {
         this.isDragging = true;
 
         const button = this.$refs.floatingButton;
@@ -77,18 +79,16 @@ export default {
         button.style.top = `${y}px`;
       }
     },
-    handleMouseUp(event) {
+    handleMouseUp() {
       document.removeEventListener("mousemove", this.onDrag);
       document.removeEventListener("touchmove", this.onDrag);
       document.removeEventListener("mouseup", this.handleMouseUp);
       document.removeEventListener("touchend", this.handleMouseUp);
 
-      // Check if it was a drag or a click
       if (!this.isDragging) {
         this.togglePopup();
       }
 
-      // Reset dragging state
       this.isDragging = false;
     },
   },

@@ -4767,7 +4767,7 @@ const _routes = [
   {
     name: "FloatingButton",
     path: "/FloatingButton",
-    component: () => import("./_nuxt/FloatingButton-KjcgKoT5.js")
+    component: () => import("./_nuxt/FloatingButton-D_7VHFKp.js")
   },
   {
     name: "GameIconsOwl",
@@ -4777,7 +4777,7 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import("./_nuxt/index-0jiM6BHG.js")
+    component: () => import("./_nuxt/index-DVXshNrp.js")
   },
   {
     name: "ip-toolkit",

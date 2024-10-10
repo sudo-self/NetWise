@@ -4861,7 +4861,7 @@ const _routes = [
   {
     name: "FloatingButton",
     path: "/FloatingButton",
-    component: () => import('./FloatingButton-KjcgKoT5.mjs')
+    component: () => import('./FloatingButton-D_7VHFKp.mjs')
   },
   {
     name: "GameIconsOwl",
@@ -4871,7 +4871,7 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-0jiM6BHG.mjs')
+    component: () => import('./index-DVXshNrp.mjs')
   },
   {
     name: "ip-toolkit",
