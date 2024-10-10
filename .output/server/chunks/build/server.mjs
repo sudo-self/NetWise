@@ -4861,7 +4861,7 @@ const _routes = [
   {
     name: "FloatingButton",
     path: "/FloatingButton",
-    component: () => import('./FloatingButton-DJU-RFt0.mjs')
+    component: () => import('./FloatingButton-KjcgKoT5.mjs')
   },
   {
     name: "GameIconsOwl",
@@ -4871,7 +4871,7 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-DSreT1lz.mjs')
+    component: () => import('./index-0jiM6BHG.mjs')
   },
   {
     name: "ip-toolkit",
@@ -4886,7 +4886,7 @@ const _routes = [
   {
     name: "Ping",
     path: "/Ping",
-    component: () => import('./Ping-BI_2cYTc.mjs')
+    component: () => import('./Ping-HvHaB_uv.mjs')
   },
   {
     name: "StatusCodes",

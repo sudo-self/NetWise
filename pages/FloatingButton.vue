@@ -3,11 +3,10 @@
     <div class="tooltip-container">
       <button
         class="floating-button"
-        @mousedown="startDrag"
-        @touchstart="startDrag"
-        :style="{ backgroundImage: `url(${buttonImage})` }"
-        @click="togglePopup"
+        @mousedown="handleMouseDown"
+        @touchstart="handleMouseDown"
         ref="floatingButton"
+        :style="{ backgroundImage: `url(${buttonImage})` }"
       >
         <span class="tooltip">Speed Test</span>
       </button>
@@ -34,44 +33,63 @@ export default {
       buttonImage: "https://pub-c1de1cb456e74d6bbbee111ba9e6c757.r2.dev/EmojioneMonotoneOwl.png",
       isDragging: false,
       offset: { x: 0, y: 0 },
+      startX: 0,
+      startY: 0,
     };
   },
   methods: {
     togglePopup() {
       this.showPopup = !this.showPopup;
     },
-    startDrag(event) {
-      this.isDragging = true;
-      event.preventDefault();
+    handleMouseDown(event) {
+      const isTouch = event.type === "touchstart";
+      const clientX = isTouch ? event.touches[0].clientX : event.clientX;
+      const clientY = isTouch ? event.touches[0].clientY : event.clientY;
 
-      const button = this.$refs.floatingButton;
-      this.offset.x = (event.clientX || event.touches[0].clientX) - button.getBoundingClientRect().left;
-      this.offset.y = (event.clientY || event.touches[0].clientY) - button.getBoundingClientRect().top;
+      // Store the starting position for drag
+      this.startX = clientX;
+      this.startY = clientY;
+      this.offset.x =
+        clientX - this.$refs.floatingButton.getBoundingClientRect().left;
+      this.offset.y =
+        clientY - this.$refs.floatingButton.getBoundingClientRect().top;
 
       document.addEventListener("mousemove", this.onDrag);
-      document.addEventListener("mouseup", this.stopDrag);
       document.addEventListener("touchmove", this.onDrag);
-      document.addEventListener("touchend", this.stopDrag);
+      document.addEventListener("mouseup", this.handleMouseUp);
+      document.addEventListener("touchend", this.handleMouseUp);
     },
     onDrag(event) {
-      if (!this.isDragging) return;
+      const clientX = event.type === "touchmove" ? event.touches[0].clientX : event.clientX;
+      const clientY = event.type === "touchmove" ? event.touches[0].clientY : event.clientY;
 
-      event.preventDefault();
+      const deltaX = Math.abs(clientX - this.startX);
+      const deltaY = Math.abs(clientY - this.startY);
 
-      const button = this.$refs.floatingButton;
-      const x = (event.clientX || event.touches[0].clientX) - this.offset.x;
-      const y = (event.clientY || event.touches[0].clientY) - this.offset.y;
+      if (deltaX > 5 || deltaY > 5) {
+        this.isDragging = true;
 
-      button.style.left = `${x}px`;
-      button.style.top = `${y}px`;
+        const button = this.$refs.floatingButton;
+        const x = clientX - this.offset.x;
+        const y = clientY - this.offset.y;
+
+        button.style.left = `${x}px`;
+        button.style.top = `${y}px`;
+      }
     },
-    stopDrag() {
-      this.isDragging = false;
-
+    handleMouseUp(event) {
       document.removeEventListener("mousemove", this.onDrag);
-      document.removeEventListener("mouseup", this.stopDrag);
       document.removeEventListener("touchmove", this.onDrag);
-      document.removeEventListener("touchend", this.stopDrag);
+      document.removeEventListener("mouseup", this.handleMouseUp);
+      document.removeEventListener("touchend", this.handleMouseUp);
+
+      // Check if it was a drag or a click
+      if (!this.isDragging) {
+        this.togglePopup();
+      }
+
+      // Reset dragging state
+      this.isDragging = false;
     },
   },
 };
@@ -82,9 +100,9 @@ export default {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
-  border: none;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -144,6 +162,3 @@ export default {
   }
 }
 </style>
-
-
-
