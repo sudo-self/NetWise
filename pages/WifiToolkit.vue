@@ -12,11 +12,14 @@
         Welcome to the Technician WIFI Toolkit. Here you can access a GUI or create a WIFI QR Code.
       </p>
 
-      <div class="router-links">
-        <p><a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer">192.168.0.1</a></p>
-        <p><a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer">192.168.1.1</a></p>
-        <p><a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer">10.0.0.1</a></p>
-      </div>
+       <section class="link-section tool">
+        <h2 class="sub-heading">Router Links</h2>
+        <div class="router-links">
+          <p><a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer">192.168.0.1</a></p>
+          <p><a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer">192.168.1.1</a></p>
+          <p><a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer">10.0.0.1</a></p>
+        </div>
+      </section>
 
       <section class="qr-generator tool">
         <h2 class="sub-heading">WiFi QR Code Generator</h2>
@@ -326,6 +329,14 @@ body {
   background: linear-gradient(90deg, #0fcf97, #12a87b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+  
+  .link-section {
+  background-color: #1f2937;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
 }
 </style>
 
