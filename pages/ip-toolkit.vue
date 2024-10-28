@@ -186,13 +186,11 @@ const isValidIPv4 = (ip) => {
 };
 
 const convertToIPv6 = (ip) => {
-
   const parts = ip.split('.').map(Number);
   return `::ffff:${parts[0].toString(16).padStart(2, '0')}${parts[1].toString(16).padStart(2, '0')}${parts[2].toString(16).padStart(2, '0')}${parts[3].toString(16).padStart(2, '0')}`;
 };
 
 const shortenIPv6 = (ipv6) => {
-
   return ipv6.replace(/(.*)(0+)(.*)/, '$1:$3').replace(/:{3,}/g, '::'); 
 };
 </script>
@@ -216,63 +214,58 @@ const shortenIPv6 = (ipv6) => {
 }
 
 .heading {
-  font-size: 2rem;
+  font-size: 2em;
+  margin: 0;
 }
 
 .home-button {
-  background-color: #f39c12;
-  color: white;
+  text-decoration: none;
+}
+
+.action-button {
+  background-color: #007BFF;
   border: none;
+  color: white;
+  padding: 10px 20px;
   border-radius: 5px;
-  padding: 10px 15px;
   cursor: pointer;
 }
 
-.toolkit {
-  margin-top: 20px;
+.action-button:disabled {
+  background-color: #555;
 }
 
 .tool {
-  background: #2c3e50;
-  margin-bottom: 15px;
-  padding: 15px;
-  border-radius: 8px;
+  margin-top: 20px;
 }
 
 .tool-title {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.5em;
+  margin: 10px 0;
 }
 
 .tool-description {
-  font-size: 1rem;
-  margin-bottom: 10px;
+  color: #999;
 }
 
 .ip-input {
   padding: 10px;
+  border: 1px solid #555;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  width: calc(100% - 22px);
-}
-
-.action-button {
-  background-color: #e74c3c;
+  background-color: #333;
   color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .result {
   margin-top: 10px;
-  font-weight: bold;
 }
 
 .error-message {
-  color: #e74c3c;
+  color: red;
+}
+
+.converter-results {
+  margin-top: 10px;
 }
 
 .ip-classes-table {
@@ -281,28 +274,38 @@ const shortenIPv6 = (ipv6) => {
 }
 
 .ip-classes-table th, .ip-classes-table td {
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   padding: 8px;
-  text-align: left;
 }
 
 .footer {
-  margin-top: 20px;
   text-align: center;
+  margin-top: 20px;
+}
+
+.social {
+  margin-top: 10px;
+}
+
+.gradient__text {
+  background: linear-gradient(to right, #FF0080, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hover-underline-animation {
   position: relative;
+  text-decoration: none;
 }
 
 .hover-underline-animation::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -2px;
-  height: 2px;
-  width: 100%;
-  background: #f39c12;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: #FF0080;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -311,4 +314,5 @@ const shortenIPv6 = (ipv6) => {
   transform: scaleX(1);
 }
 </style>
+
 
