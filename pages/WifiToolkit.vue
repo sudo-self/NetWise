@@ -336,6 +336,18 @@ body {
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
 }
+  .router-links {
+  margin-bottom: 2rem;
+}
+
+.link {
+  color: #12a87b; 
+}
+
+.space {
+  margin: 2rem 0; 
+}
+
 
 </style>
 
