@@ -118,10 +118,10 @@ const ipInfo = ref('');
 const convertedResults = ref(null);
 const ipError = ref('');
 const conversionError = ref('');
-const loading = ref(false); // Loading state
+const loading = ref(false);
 
 const fetchPublicIP = async () => {
-  loading.value = true; // Start loading
+  loading.value = true;
   try {
     const response = await fetch('https://api.ipify.org?format=json');
     const data = await response.json();
@@ -130,7 +130,7 @@ const fetchPublicIP = async () => {
     publicIP.value = '';
     console.error('Error fetching public IP:', error);
   } finally {
-    loading.value = false; // End loading
+    loading.value = false;
   }
 };
 
@@ -143,7 +143,7 @@ const lookupIP = async () => {
   }
 
   ipError.value = '';
-  loading.value = true; // Start loading
+  loading.value = true; 
   try {
     const response = await fetch(`https://ipinfo.io/${ip}/json`);
     if (!response.ok) {
@@ -157,7 +157,7 @@ const lookupIP = async () => {
     ipError.value = error.message || 'Error looking up IP address.';
     console.error('Error looking up IP:', error);
   } finally {
-    loading.value = false; // End loading
+    loading.value = false;
   }
 };
 
@@ -186,14 +186,14 @@ const isValidIPv4 = (ip) => {
 };
 
 const convertToIPv6 = (ip) => {
-  // Simple IPv4 to IPv6 conversion logic
+
   const parts = ip.split('.').map(Number);
   return `::ffff:${parts[0].toString(16).padStart(2, '0')}${parts[1].toString(16).padStart(2, '0')}${parts[2].toString(16).padStart(2, '0')}${parts[3].toString(16).padStart(2, '0')}`;
 };
 
 const shortenIPv6 = (ipv6) => {
-  // Placeholder for IPv6 shortening logic
-  return ipv6.replace(/(.*)(0+)(.*)/, '$1:$3').replace(/:{3,}/g, '::'); // Basic compression
+
+  return ipv6.replace(/(.*)(0+)(.*)/, '$1:$3').replace(/:{3,}/g, '::'); 
 };
 </script>
 
