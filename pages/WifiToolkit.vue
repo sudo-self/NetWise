@@ -166,7 +166,7 @@
 }
 
 .link-style {
-  color: #60a5fa;
+  color: #60a5fa; 
   text-decoration: none;
 }
 
@@ -228,3 +228,4 @@
   transform: scaleX(1);
 }
 </style>
+
