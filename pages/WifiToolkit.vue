@@ -1,22 +1,24 @@
 <template>
   <div class="wrapper">
     <div class="margins">
-      <div class="header flex items-center justify-between">
+      <header class="header flex items-center justify-between">
         <h1 class="heading">WIFI Toolkit</h1>
         <router-link to="/" class="home-button">
           <button class="home-button-style">Home</button>
         </router-link>
-      </div>
+      </header>
+
       <p class="description">
         Welcome to the Technician WIFI Toolkit. Here you can access a GUI or create a WIFI QR Code.
       </p>
+
       <div class="router-links">
         <p><a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer">192.168.0.1</a></p>
         <p><a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer">192.168.1.1</a></p>
         <p><a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer">10.0.0.1</a></p>
       </div>
 
-      <div class="qr-generator tool">
+      <section class="qr-generator tool">
         <h2 class="sub-heading">WiFi QR Code Generator</h2>
         <form @submit.prevent="generateQRCode">
           <div class="mb-4">
@@ -27,10 +29,12 @@
               <option value="None">None</option>
             </select>
           </div>
+
           <div class="mb-4">
             <label class="block mb-1 gradient__text">SSID:</label>
             <input type="text" v-model="ssid" class="input-field" required />
           </div>
+
           <div class="mb-4">
             <label class="block mb-1 gradient__text">Password:</label>
             <input type="password" v-model="password" class="input-field" required />
@@ -54,9 +58,9 @@
           <img :src="qrCodeUrl" alt="WiFi QR Code" class="qr-code" />
           <button @click="shareQRCode" class="share-button gradient__button">Share QR Code</button>
         </div>
-      </div>
+      </section>
 
-      <div class="tool wifi-channels">
+      <section class="tool wifi-channels">
         <h2 class="sub-heading">WiFi Channels</h2>
         <table class="mac-table">
           <thead>
@@ -95,7 +99,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </section>
 
       <footer class="margins footer">
         <div class="social">
@@ -222,9 +226,12 @@ body {
 }
 
 .input-field {
-  @apply border border-gray-300 rounded p-2 w-full;
-  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  width: 100%;
   background-color: #f3f0f0;
+  color: #000;
 }
 
 .color-picker-input {
@@ -265,70 +272,48 @@ body {
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease;
+  margin-top: 1rem;
 }
 
 .action-button:hover {
   background-color: #0fcf97;
 }
 
-.wifi-channels {
-  margin-top: 2rem;
-}
-
 .mac-table {
+  margin-top: 1rem;
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem; 
 }
 
-.mac-table th,
-.mac-table td {
-  padding: 0.75rem;
-  text-align: left;
-}
-
-.mac-table th {
-  background-color: #1f2937; 
-  color: #fff; 
-  border-bottom: 2px solid #0fcf97; 
-}
-
-.mac-table td {
-  background-color: #2a2a2a; 
-  color: #ada9a9; 
-  border-bottom: 1px solid #444; 
-}
-
-.mac-table tr:hover {
-  background-color: #3b3b3b;
-}
-
-.footer {
-  margin-top: 2rem;
+.mac-table th, .mac-table td {
+  border: 1px solid #444;
+  padding: 0.5rem;
   text-align: center;
 }
 
-.social a {
-  color: #12a87b;
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.social {
+  margin-top: 1rem;
 }
 
 .hover-underline-animation {
   position: relative;
-  color: #12a87b;
   display: inline-block;
+  color: #0fcf97;
 }
 
 .hover-underline-animation::after {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
+  width: 100%;
   height: 2px;
-  background-color: #12a87b;
+  background: #0fcf97;
+  left: 0;
+  bottom: -2px;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -336,19 +321,13 @@ body {
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
 }
-  .router-links {
-  margin-bottom: 2rem;
+
+.gradient__text {
+  background: linear-gradient(90deg, #0fcf97, #12a87b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-
-.link {
-  color: #12a87b; 
-}
-
-.space {
-  margin: 2rem 0; 
-}
-
-
 </style>
+
 
 
