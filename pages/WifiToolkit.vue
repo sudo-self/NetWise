@@ -12,12 +12,12 @@
         Welcome to the Technician WIFI Toolkit. Here you can access a GUI or create a WIFI QR Code.
       </p>
 
-       <section class="link-section tool">
+      <section class="link-section tool">
         <h2 class="sub-heading">Router Links</h2>
         <div class="router-links">
-          <p><a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer">192.168.0.1</a></p>
-          <p><a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer">192.168.1.1</a></p>
-          <p><a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer">10.0.0.1</a></p>
+          <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="router-link">192.168.0.1</a>
+          <a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer" class="router-link">192.168.1.1</a>
+          <a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer" class="router-link">10.0.0.1</a>
         </div>
       </section>
 
@@ -215,6 +215,34 @@ body {
   margin-bottom: 2rem;
 }
 
+.link-section {
+  background-color: #1f2937;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.router-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.router-link {
+  color: #0fcf97;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: 1px solid #0fcf97;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.router-link:hover {
+  background-color: #0fcf97;
+  color: #0c0a09; /* Dark background color */
+}
+
 .qr-generator {
   background-color: #1f2937;
   padding: 1.5rem;
@@ -234,69 +262,61 @@ body {
   padding: 0.5rem;
   width: 100%;
   background-color: #f3f0f0;
-  color: #000;
 }
 
 .color-picker-input {
-  display: inline-block;
   width: 100%;
-  height: 3rem;
   border: none;
-  border-radius: 0.5rem;
-  background-color: #f3f0f0;
-  cursor: pointer;
-  padding: 0.25rem;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
-}
-
-.color-picker-input:hover {
-  box-shadow: inset 0 0 0 2px #0fcf97;
-}
-
-.qr-code {
-  width: 200px;
-  height: 200px;
-}
-
-.share-button {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  background-color: #12a87b;
-  color: white;
-  border-radius: 0.5rem;
-}
-
-.share-button:hover {
-  background-color: #0fcf97;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
 }
 
 .action-button {
   background-color: #12a87b;
   color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
   margin-top: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .action-button:hover {
   background-color: #0fcf97;
 }
 
-.mac-table {
+.qr-code {
+  width: 200px; /* Or adjust to fit your layout */
+  height: 200px; /* Or adjust to fit your layout */
+}
+
+.share-button {
+  background-color: #12a87b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
   margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.share-button:hover {
+  background-color: #0fcf97;
+}
+
+.mac-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.mac-table th, .mac-table td {
-  border: 1px solid #444;
+.mac-table th,
+.mac-table td {
+  border: 1px solid #ccc;
   padding: 0.5rem;
-  text-align: center;
+  text-align: left;
 }
 
 .footer {
-  text-align: center;
   margin-top: 2rem;
+  text-align: center;
 }
 
 .social {
@@ -305,20 +325,19 @@ body {
 
 .hover-underline-animation {
   position: relative;
-  display: inline-block;
-  color: #0fcf97;
+  color: #12a87b;
 }
 
 .hover-underline-animation::after {
-  content: '';
+  content: "";
   position: absolute;
-  width: 100%;
-  height: 2px;
-  background: #0fcf97;
   left: 0;
   bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background-color: #0fcf97;
   transform: scaleX(0);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out;
 }
 
 .hover-underline-animation:hover::after {
@@ -326,17 +345,18 @@ body {
 }
 
 .gradient__text {
-  background: linear-gradient(90deg, #0fcf97, #12a87b);
+  background: linear-gradient(to right, #12a87b, #0fcf97);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-  
-  .link-section {
-  background-color: #1f2937;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1.5rem;
+
+.gradient__button {
+  background: linear-gradient(to right, #12a87b, #0fcf97);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
 }
 </style>
 
