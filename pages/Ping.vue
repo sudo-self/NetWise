@@ -84,7 +84,7 @@ const sendPing = async () => {
   pingResult.value = null;
 
   try {
-    const response = await fetch('/api/ping', { // Call your local API endpoint
+    const response = await fetch('/api/ping', { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ const sendPing = async () => {
     }
 
     const data = await response.json();
-    pingResult.value = data.data; // Assuming the data you need is inside `data.data`
+    pingResult.value = data.data; 
   } catch (err) {
     error.value = err.message || 'An unexpected error occurred.';
   } finally {
@@ -107,11 +107,22 @@ const sendPing = async () => {
 </script>
 
 <style scoped>
+body, html {
+  min-height: 100vh;
+  margin: 0;
+  background-color: #0c0a09; 
+}
+
 .wrapper {
   padding: 2rem;
   background-color: #0c0a09;
   color: #ada9a9;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+  
 .margins {
   padding-left: 1rem;
   padding-right: 1rem;
