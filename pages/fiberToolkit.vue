@@ -2,16 +2,20 @@
   <div class="wrapper">
     <div class="margins">
       <h2 class="heading">Fiber Optic Networks</h2>
+      
       <div class="flex justify-end mt-4">
         <router-link to="/" class="home-button">
           <button class="action-button">Home</button>
         </router-link>
       </div>
+      
       <section class="description">
         <p>
           Fibre Optic PON uses light signals to transmit data, though few realize the various methods to facilitate these signals' journey.
         </p>
-        <p>Two main types of optical networks achieve this:</p>
+        <p>
+          Two main types of optical networks achieve this:
+        </p>
         
         <h2 class="tool-title gradient__text">Fiber Optic Passive Optical Network</h2>
         <p class="tool-description">
@@ -27,8 +31,12 @@
         </p>
         
         <ul class="toolkit">
-          <li class="tool"><span class="tool-title">Firstly - Active Optical Network (AON)</span></li>
-          <li class="tool"><span class="tool-title">Secondly - Passive Optical Network (PON)</span></li>
+          <li class="tool">
+            <span class="tool-title">Firstly - Active Optical Network (AON)</span>
+          </li>
+          <li class="tool">
+            <span class="tool-title">Secondly - Passive Optical Network (PON)</span>
+          </li>
         </ul>
 
         <h3 class="tool-title gradient__text">Advantages of PON</h3>
@@ -41,7 +49,12 @@
       
       <footer class="margins footer">
         <div class="social">
-          <a href="https://x.com/ilostmyipad" target="_blank" rel="noopener noreferrer" class="hover-underline-animation">
+          <a 
+            href="https://x.com/ilostmyipad" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="hover-underline-animation"
+          >
             <span class="gradient__text">@iLostmyipad</span>
           </a>
         </div>
@@ -49,6 +62,7 @@
     </div>
   </div>
 </template>
+
 
 <style scoped>
 body {
