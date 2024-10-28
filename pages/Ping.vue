@@ -42,30 +42,6 @@
         an Echo Reply. The results provide information on the IP address of the host, the number of requests sent, 
         the packet loss percentage, and the round-trip time it takes for the packets to travel to the host and back.
       </p>
-
-      <h3 class="sub-heading mt-8">Examples</h3>
-      <ul class="record-list">
-        <li>
-          <span class="gradient__text">Example 1:</span>
-          <pre>PING google.com (142.250.190.14): 56 data bytes
-64 bytes from 142.250.190.14: icmp_seq=1 ttl=117 time=14.3 ms</pre>
-        </li>
-        <li>
-          <span class="gradient__text">Example 2:</span>
-          <pre>PING example.com (93.184.216.34): 56 data bytes
-64 bytes from 93.184.216.34: icmp_seq=1 ttl=59 time=15.7 ms</pre>
-        </li>
-        <li>
-          <span class="gradient__text">Example 3:</span>
-          <pre>PING localhost (127.0.0.1): 56 data bytes
-64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.038 ms</pre>
-        </li>
-        <li>
-          <span class="gradient__text">Example 4:</span>
-          <pre>PING non-existent-domain.com (0.0.0.0): 56 data bytes
-ping: non-existent-domain.com: Name or service not known</pre>
-        </li>
-      </ul>
     </div>
   </div>
 </template>
