@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.SITE_RELIC_API_KEY, // Use the environment variable
+        'x-api-key': process.env.SITE_RELIC_API_KEY, 
       },
       body: JSON.stringify({
         url,
