@@ -25,11 +25,8 @@
             <span class="tool-title">Secondly - Passive Optical Network (PON)</span>
           </li>
         </ul>
-        <p>
-          This article will focus on the second network type, exploring why the Passive Optical Network is becoming more prominent.
-        </p>
-
-        <h2 class="tool-title gradient__text">Fibre Optic Passive Optical Network</h2>
+       
+        <h2 class="tool-title gradient__text">Fiber Optic Passive Optical Network</h2>
         <p class="tool-description">
           PON technologies are being adopted in the telecom industry. By implementing a point-to-multipoint framework, a single PON
           fibre optic network can serve multiple endpoints from one optic fibre.
@@ -42,8 +39,7 @@
 
         <h3 class="tool-title gradient__text">PON Network Components</h3>
         <p class="tool-description">
-          A PON network includes multiple “Optical Network Units” (ONUs) and “Optical Line Terminations” (OLTs). The OLT is
-          typically located at the service provider’s central office, while up to 32 ONUs are placed near the end receivers.
+          A PON network includes multiple “Optical Network Units” (ONUs) and “Optical Line Terminations” (OLTs).
         </p>
 
         <h3 class="tool-title gradient__text">Advantages of PON</h3>
@@ -52,12 +48,6 @@
           <li class="tool">Reduced network infrastructure requirements.</li>
           <li class="tool">No need for network switches.</li>
         </ul>
-
-        <h3 class="tool-title gradient__text">Why Test the PON Before Deployment?</h3>
-        <p class="tool-description">
-          Testing is crucial before deploying a Passive Optical Network. A PON Power Meter can evaluate the network, ensuring the
-          wavelength frequency is within acceptable parameters.
-        </p>
       </section>
         <footer class="margins footer">
         <div class="social">
