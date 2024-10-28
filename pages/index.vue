@@ -93,6 +93,23 @@
             <GameIconsOwl class="absolute bottom-2 right-2 w-6 h-6" />
           </div>
 
+            <div class="card relative">
+            <div class="layout">
+              <div class="group">
+                <h2 class="heading">Fiber Toolkit</h2>
+                <p class="description">Fiber toolkit for managing fiber-optic connections and diagnostics.</p>
+              </div>
+              <div class="group actions">
+                <router-link to="/fiberToolkit">
+                  <button class="action-button">Enter</button>
+                </router-link>
+              </div>
+            </div>
+            <GameIconsOwl class="absolute bottom-2 right-2 w-6 h-6" />
+          </div>
+
+          
+
           <div class="card relative">
             <div class="layout">
               <div class="group">
