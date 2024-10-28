@@ -11,33 +11,9 @@
         Welcome to the Technician WIFI Toolkit. Here you can access a GUI or create a WIFI QR Code.
       </p>
       <div class="router-links">
-        <p>
-          <a
-            href="http://192.168.0.1"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link-style"
-            >192.168.0.1</a
-          >
-        </p>
-        <p>
-          <a
-            href="http://192.168.1.1"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link-style"
-            >192.168.1.1</a
-          >
-        </p>
-        <p>
-          <a
-            href="http://10.0.0.1"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link-style"
-            >10.0.0.1</a
-          >
-        </p>
+        <p><a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer">192.168.0.1</a></p>
+        <p><a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer">192.168.1.1</a></p>
+        <p><a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer">10.0.0.1</a></p>
       </div>
 
       <div class="qr-generator tool">
@@ -81,40 +57,41 @@
       </div>
 
       <div class="tool wifi-channels">
-        <table class="mac-table" style="width: 100%; border-collapse: collapse;">
+        <h2 class="sub-heading">WiFi Channels</h2>
+        <table class="mac-table">
           <thead>
             <tr>
-              <th style="border: 1px solid #6b7280; padding: 0.75rem; text-align: left; background-color: #374151;">Frequency Band</th>
-              <th style="border: 1px solid #6b7280; padding: 0.75rem; text-align: left; background-color: #374151;">Channel Number</th>
-              <th style="border: 1px solid #6b7280; padding: 0.75rem; text-align: left; background-color: #374151;">Bandwidth (MHz)</th>
+              <th>Frequency Band</th>
+              <th>Channel Number</th>
+              <th>Bandwidth (MHz)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td rowspan="3" style="border: 1px solid #6b7280; padding: 0.75rem; background-color: #4b5563;">2.4 GHz</td>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">1</td>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">20</td>
+              <td rowspan="3">2.4 GHz</td>
+              <td>1</td>
+              <td>20</td>
             </tr>
             <tr>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">6</td>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">20</td>
+              <td>6</td>
+              <td>20</td>
             </tr>
             <tr>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">11</td>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">20</td>
+              <td>11</td>
+              <td>20</td>
             </tr>
             <tr>
-              <td rowspan="3" style="border: 1px solid #6b7280; padding: 0.75rem; background-color: #4b5563;">5 GHz</td>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">36</td>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">20 / 40</td>
+              <td rowspan="3">5 GHz</td>
+              <td>36</td>
+              <td>20 / 40</td>
             </tr>
             <tr>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">44</td>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">20 / 40</td>
+              <td>44</td>
+              <td>20 / 40</td>
             </tr>
             <tr>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">149</td>
-              <td style="border: 1px solid #6b7280; padding: 0.75rem;">20 / 40</td>
+              <td>149</td>
+              <td>20 / 40</td>
             </tr>
           </tbody>
         </table>
@@ -136,50 +113,134 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      encryptionMethod: 'WPA/WPA2',
+      ssid: '',
+      password: '',
+      foregroundColor: '#000000',
+      backgroundColor: '#ffffff',
+      qrCodeUrl: ''
+    };
+  },
+  methods: {
+    generateQRCode() {
+      const wifiString = `WIFI:S:${this.ssid};T:${this.encryptionMethod};P:${this.password};;;`;
+      const colorForeground = this.foregroundColor.replace('#', '');
+      const colorBackground = this.backgroundColor.replace('#', '');
+
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(wifiString)}&size=200x200&color=${colorForeground}&bgcolor=${colorBackground}`;
+      this.qrCodeUrl = qrUrl;
+    },
+    shareQRCode() {
+      if (this.qrCodeUrl) {
+        if (navigator.share) {
+          navigator.share({
+            title: 'WiFi QR Code',
+            text: 'WiFi Connection Code',
+            url: this.qrCodeUrl,
+          }).then(() => {
+            this.$toast.success('QR Code shared successfully!');
+          }).catch((error) => {
+            this.$toast.error('Error sharing QR Code: ' + error);
+          });
+        } else {
+          navigator.clipboard.writeText(this.qrCodeUrl).then(() => {
+            this.$toast.success('QR Code link copied to clipboard!');
+          }).catch(() => {
+            this.$toast.error('Failed to copy QR Code link.');
+          });
+        }
+      }
+    }
+  }
+};
+</script>
+
 <style scoped>
+body {
+  background-color: #0c0a09;
+  margin: 0;
+  color: #ada9a9;
+}
+
 .wrapper {
+  background-color: #0c0a09;
+  color: #ada9a9;
   padding: 2rem;
-  background-color: #1f2937;
-  color: #ffffff;
 }
 
 .margins {
-  margin: auto;
-  max-width: 800px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 2rem;
 }
 
 .heading {
   font-size: 2rem;
-  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #fff;
 }
 
 .home-button-style {
-  background-color: #4b5563;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border: none;
-  cursor: pointer;
+  background-color: #12a87b;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
-.link-style {
-  color: #60a5fa; 
-  text-decoration: none;
+.home-button-style:hover {
+  background-color: #0fcf97;
 }
 
-.link-style:hover {
-  text-decoration: underline;
-}
-
-.qr-generator,
-.wifi-channels {
-  background-color: #374151;
-  padding: 1rem;
-  border-radius: 8px;
+.description {
+  font-size: 1.25rem;
   margin-bottom: 2rem;
+}
+
+.qr-generator {
+  background-color: #1f2937;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sub-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.input-field {
+  @apply border border-gray-300 rounded p-2 w-full;
+  color: #000;
+  background-color: #f3f0f0;
+}
+
+.color-picker-input {
+  display: inline-block;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #f3f0f0;
+  cursor: pointer;
+  padding: 0.25rem;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.color-picker-input:hover {
+  box-shadow: inset 0 0 0 2px #0fcf97;
 }
 
 .qr-code {
@@ -187,39 +248,87 @@
   height: 200px;
 }
 
-.action-button,
 .share-button {
-  background-color: #60a5fa;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border: none;
-  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #12a87b;
+  color: white;
+  border-radius: 0.5rem;
 }
 
-.footer {
-  text-align: center;
+.share-button:hover {
+  background-color: #0fcf97;
+}
+
+.action-button {
+  background-color: #12a87b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #0fcf97;
+}
+
+.wifi-channels {
   margin-top: 2rem;
 }
 
-.gradient__text {
-  background: linear-gradient(to right, #6ee7b7, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.mac-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem; 
+}
+
+.mac-table th,
+.mac-table td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.mac-table th {
+  background-color: #1f2937; 
+  color: #fff; 
+  border-bottom: 2px solid #0fcf97; 
+}
+
+.mac-table td {
+  background-color: #2a2a2a; 
+  color: #ada9a9; 
+  border-bottom: 1px solid #444; 
+}
+
+.mac-table tr:hover {
+  background-color: #3b3b3b;
+}
+
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.social a {
+  color: #12a87b;
 }
 
 .hover-underline-animation {
   position: relative;
-  color: #60a5fa;
+  color: #12a87b;
+  display: inline-block;
 }
 
 .hover-underline-animation::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: 0;
+  right: 0;
+  bottom: -1px;
   height: 2px;
-  width: 100%;
-  background-color: #60a5fa;
+  background-color: #12a87b;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -227,5 +336,7 @@
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
 }
+
 </style>
+
 
