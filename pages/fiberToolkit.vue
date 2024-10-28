@@ -2,61 +2,46 @@
   <div class="wrapper">
     <div class="margins">
       <h2 class="heading">Fiber Optic Networks</h2>
-      <div class="mb-4">
-        <div class="flex justify-end mt-4">
-          <router-link to="/" class="home-button">
-            <button class="action-button">Home</button>
-          </router-link>
-        </div>
+      <div class="flex justify-end mt-4">
+        <router-link to="/" class="home-button">
+          <button class="action-button">Home</button>
+        </router-link>
       </div>
       <section class="description">
         <p>
-          Fibre Optic PON uses a light-signal for transmitting data, which is widely understood. However, not everyone is aware that
-          there are various ways to enable these signals to reach their destination.
+          Fibre Optic PON uses light signals to transmit data, though few realize the various methods to facilitate these signals' journey.
         </p>
-        <p>
-          Accordingly, several types of optical networks are employed to achieve this:
-        </p>
-        <ul class="toolkit">
-          <li class="tool">
-            <span class="tool-title">Firstly - Active Optical Network (AON)</span>
-          </li>
-          <li class="tool">
-            <span class="tool-title">Secondly - Passive Optical Network (PON)</span>
-          </li>
-        </ul>
-       
+        <p>Two main types of optical networks achieve this:</p>
+        
         <h2 class="tool-title gradient__text">Fiber Optic Passive Optical Network</h2>
         <p class="tool-description">
-          PON technologies are being adopted in the telecom industry. By implementing a point-to-multipoint framework, a single PON
-          fibre optic network can serve multiple endpoints from one optic fibre.
+          PON technology is widely adopted in telecom, supporting multiple endpoints through a single optic fibre with point-to-multipoint topology.
         </p>
-
         <p class="tool-description">
-          The attenuation of light through an optical splitter is symmetrical. Whether a splitter is combining light in upstream
-          transmission or dividing it downstream, it introduces the same attenuation to the optical signal.
+          Optical splitters attenuate light symmetrically, introducing equal attenuation to signals upstream and downstream.
         </p>
 
         <h3 class="tool-title gradient__text">PON Network Components</h3>
         <p class="tool-description">
-          A PON network includes multiple “Optical Network Units” (ONUs) and “Optical Line Terminations” (OLTs).
+          A PON network comprises “Optical Network Units” (ONUs) and “Optical Line Terminations” (OLTs), with OLTs at the service provider’s end and ONUs near the receivers.
         </p>
+        
+        <ul class="toolkit">
+          <li class="tool"><span class="tool-title">Firstly - Active Optical Network (AON)</span></li>
+          <li class="tool"><span class="tool-title">Secondly - Passive Optical Network (PON)</span></li>
+        </ul>
 
         <h3 class="tool-title gradient__text">Advantages of PON</h3>
         <ul class="toolkit">
-          <li class="tool">Decreased operational, installation, and network energy costs.</li>
-          <li class="tool">Reduced network infrastructure requirements.</li>
+          <li class="tool">Reduced operational, installation, and energy costs.</li>
+          <li class="tool">Less network infrastructure.</li>
           <li class="tool">No need for network switches.</li>
         </ul>
       </section>
-        <footer class="margins footer">
+      
+      <footer class="margins footer">
         <div class="social">
-          <a
-            href="https://x.com/ilostmyipad"
-            rel="noopener noreferrer"
-            target="_blank"
-            class="hover-underline-animation"
-          >
+          <a href="https://x.com/ilostmyipad" target="_blank" rel="noopener noreferrer" class="hover-underline-animation">
             <span class="gradient__text">@iLostmyipad</span>
           </a>
         </div>
@@ -69,20 +54,18 @@
 body {
   background-color: #0c0a09;
   margin: 0;
-  color: #000;
+  color: #fff;
 }
 
 .wrapper {
   background-color: #0c0a09;
-  color: #fff;
   padding: 2rem;
-  border-radius: 0px;
+  color: #fff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .margins {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem;
 }
 
 .heading {
@@ -98,7 +81,7 @@ body {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .tool {
@@ -132,7 +115,7 @@ body {
 }
 
 .gradient__text {
-  background: linear-gradient(90deg, #7bceb6 10%, #12a87b 40%, #0fcf97 60%, #7bceb6 100%);
+  background: linear-gradient(90deg, #7bceb6, #12a87b, #0fcf97, #7bceb6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -145,8 +128,8 @@ body {
 }
 
 .social a {
+  color: inherit;
   text-decoration: none;
-  color: #000;
 }
 
 .hover-underline-animation {
@@ -158,10 +141,10 @@ body {
   content: "";
   background: #12a87b;
   height: 2px;
-  left: 50%;
   position: absolute;
-  transition: all 0.3s ease;
   width: 0;
+  left: 50%;
+  transition: width 0.3s ease;
 }
 
 .hover-underline-animation:hover:after {
@@ -175,3 +158,4 @@ body {
   }
 }
 </style>
+
