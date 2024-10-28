@@ -37,10 +37,6 @@
           <li class="tool">
             <span class="tool-title">Secondly - Passive Optical Network (PON)</span>
           </li>
-        </ul>
-
-        <h3 class="tool-title gradient__text">Advantages of PON</h3>
-        <ul class="toolkit">
           <li class="tool">Reduced operational, installation, and energy costs.</li>
           <li class="tool">Less network infrastructure.</li>
           <li class="tool">No need for network switches.</li>
