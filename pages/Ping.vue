@@ -132,7 +132,7 @@ body, html {
   background-color: #0fcf97;
 }
 .record-types {
-  background-color: #1f2937; /* Slightly darker background for visibility */
+  background-color: #1f2937;
   padding: 1rem;
   border-radius: 0.5rem;
 }
