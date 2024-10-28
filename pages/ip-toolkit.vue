@@ -47,72 +47,67 @@
         </div>
 
 
-        <div class="tool">
-          <h2 class="tool-title">IP Classes</h2>
-          <p class="tool-description">Classes, Ranges, and Uses.</p>
-          <table class="ip-classes-table">
-            <thead>
-              <tr>
-                <th>Class</th>
-                <th>Range</th>
-                <th>Use</th>
-                <th>Public/Private</th>
-                <th>Potential Addresses</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>A</td>
-                <td>1.0.0.0 to 126.0.0.0</td>
-                <td>Large networks, unicast</td>
-                <td>Public</td>
-                <td>16,777,216</td>
-              </tr>
-              <tr>
-                <td>B</td>
-                <td>128.0.0.0 to 191.255.0.0</td>
-                <td>Medium networks, unicast</td>
-                <td>Public</td>
-                <td>65,536</td>
-              </tr>
-              <tr>
-                <td>C</td>
-                <td>192.0.0.0 to 223.255.255.0</td>
-                <td>Small networks, unicast (small businesses)</td>
-                <td>Public</td>
-                <td>256</td>
-              </tr>
-              <tr>
-                <td>D</td>
-                <td>224.0.0.0 to 239.255.255.255</td>
-                <td>Multicast</td>
-                <td>Public</td>
-                <td>N/A</td>
-              </tr>
-              <tr>
-                <td>E</td>
-                <td>240.0.0.0 to 255.255.255.255</td>
-                <td>Reserved for future use</td>
-                <td>Reserved</td>
-                <td>N/A</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="tool">
+  <h2 class="tool-title">IP Classes</h2>
+  <p class="tool-description">Classes, Ranges, and Uses.</p>
+  <table class="ip-classes-table">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Range</th>
+        <th>Use</th>
+        <th>Public/Private</th>
+        <th>Potential Addresses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>A</td>
+        <td>1.0.0.0 to 126.0.0.0</td>
+        <td>Large networks, unicast</td>
+        <td>Public</td>
+        <td>16,777,216</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>128.0.0.0 to 191.255.0.0</td>
+        <td>Medium networks, unicast</td>
+        <td>Public</td>
+        <td>65,536</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>192.0.0.0 to 223.255.255.0</td>
+        <td>Small networks, unicast (small businesses)</td>
+        <td>Public</td>
+        <td>256</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>224.0.0.0 to 239.255.255.255</td>
+        <td>Multicast</td>
+        <td>Public</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>240.0.0.0 to 255.255.255.255</td>
+        <td>Reserved for future use</td>
+        <td>Reserved</td>
+        <td>N/A</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-      </div>
-    </div>
-
-
-    <footer class="margins footer">
-      <div class="social">
-        <a href="https://x.com/ilostmyipad" rel="noopener noreferrer" target="_blank" class="hover-underline-animation">
-          <span class="gradient__text">@iLostmyipad</span>
-        </a>
-      </div>
-    </footer>
+<footer class="margins footer">
+  <div class="social">
+    <a href="https://x.com/ilostmyipad" rel="noopener noreferrer" target="_blank" class="hover-underline-animation">
+      <span class="gradient__text">@iLostmyipad</span>
+    </a>
   </div>
-</template>
+</footer>
+
 
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -348,10 +343,6 @@ body {
 }
 
 
-.table-container {
-  overflow-x: auto;
-}
-
 .ip-classes-table {
   width: 100%;
   border-collapse: collapse;
@@ -368,19 +359,6 @@ body {
 .ip-classes-table th {
   background-color: #1f2937;
   color: #fff;
-}
-
-.ip-classes-table tr:nth-child(even) {
-  background-color: #2d3748;
-}
-
-@media (max-width: 768px) {
-  .ip-classes-table th:nth-child(4),
-  .ip-classes-table th:nth-child(5),
-  .ip-classes-table td:nth-child(4),
-  .ip-classes-table td:nth-child(5) {
-    display: none;
-  }
 }
 
 </style>
