@@ -96,7 +96,7 @@
             <div class="card relative">
             <div class="layout">
               <div class="group">
-                <h2 class="heading">Fiber Toolkit</h2>
+                <h2 class="heading">FTTH Toolkit</h2>
                 <p class="description">Fiber toolkit for managing fiber-optic connections and diagnostics.</p>
               </div>
               <div class="group actions">
