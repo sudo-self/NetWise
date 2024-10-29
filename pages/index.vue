@@ -126,6 +126,38 @@
           </div>
         </div>
 
+         <div class="card relative">
+            <div class="layout">
+              <div class="group">
+                <h2 class="heading">VPN Toolkit</h2>
+                <p class="description">VPNs Setup and configuration</p>
+              </div>
+              <div class="group actions">
+                <router-link to="/StatusCodes">
+                  <button class="action-button">Enter</button>
+                </router-link>
+              </div>
+            </div>
+            <GameIconsOwl class="absolute bottom-2 right-2 w-6 h-6" />
+          </div>
+        </div>
+            <div class="card relative">
+            <div class="layout">
+              <div class="group">
+                <h2 class="heading">RG MESH Toolkit</h2>
+                <p class="description">setup and basic mesh config measures</p>
+              </div>
+              <div class="group actions">
+                <router-link to="/StatusCodes">
+                  <button class="action-button">Enter</button>
+                </router-link>
+              </div>
+            </div>
+            <GameIconsOwl class="absolute bottom-2 right-2 w-6 h-6" />
+          </div>
+        </div>
+
+      
         <FloatingButton />
       </div>
     </div>
