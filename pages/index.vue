@@ -142,7 +142,7 @@
             <div class="layout">
               <div class="group">
                 <h2 class="heading">Speed Toolkit</h2>
-                <p class="description">internet speed test suite toolkit</p>
+                <p class="description">internet speed testing toolkit</p>
               </div>
               <div class="group actions">
                 <router-link to="/SpeedVue">
