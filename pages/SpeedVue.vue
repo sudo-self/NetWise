@@ -20,6 +20,18 @@
       </div>
     </div>
 
+ 
+      <div class="speed-test-links mt-8">
+        <h2 class="tool-title text-gray-300">Test Your Speed</h2>
+        <p class="mb-4">Use these tools to measure your internet speed and ensure you're getting the performance you need:</p>
+        <ul class="list-disc pl-5">
+          <li><a href="https://www.speedtest.net" target="_blank" rel="noopener noreferrer" class="hover-underline-animation">Ookla Speedtest</a></li>
+          <li><a href="https://fast.com" target="_blank" rel="noopener noreferrer" class="hover-underline-animation">Fast.com</a></li>
+          <li><a href="https://fiber.google.com/speedtest/" target="_blank" rel="noopener noreferrer" class="hover-underline-animation">Google Fiber Speed Test</a></li>
+        </ul>
+      </div>
+    </div>
+
     <footer class="margins footer">
       <div class="social">
         <a href="https://x.com/ilostmyipad" rel="noopener noreferrer" target="_blank" class="hover-underline-animation">
