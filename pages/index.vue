@@ -141,11 +141,11 @@
           <div class="card relative">
             <div class="layout">
               <div class="group">
-                <h2 class="heading">RG MESH Toolkit</h2>
-                <p class="description">Setup and basic mesh config measures</p>
+                <h2 class="heading">Speed Toolkit</h2>
+                <p class="description">internet speed test suite toolkit</p>
               </div>
               <div class="group actions">
-                <router-link to="/StatusCodes">
+                <router-link to="/SpeedVue">
                   <button class="action-button">Enter</button>
                 </router-link>
               </div>
