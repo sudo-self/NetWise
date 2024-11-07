@@ -75,18 +75,14 @@ const fetchVPNDetails = async () => {
   errorMessage.value = '';
 
   try {
-    const response = await $fetch('/api/vpnLookup', {
-      method: 'POST',
-      body: {
-        ip: ipAddress.value,
-      },
-    });
+    // Send GET request to the VPN lookup API
+    const response = await $fetch(`/api/vpnLookup?ip_address=${ipAddress.value}`);
 
-    if (!response || !response.data) {
+    if (!response) {
       throw new Error('No VPN details found for this IP address');
     }
 
-    vpnDetails.value = response.data;
+    vpnDetails.value = response;
   } catch (error) {
     errorMessage.value = error.message || 'An error occurred while fetching VPN details.';
   }
@@ -151,3 +147,4 @@ th, td {
   animation: shine 1s linear infinite;
 }
 </style>
+
