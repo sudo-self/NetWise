@@ -183,6 +183,7 @@ body {
 .speed-test-links a {
   text-align: center;
   width: 100%;
+  background-color: #1f2937;
 }
 </style>
 
