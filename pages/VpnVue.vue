@@ -64,12 +64,18 @@
 </template>
 
 <script setup>
+  
+import { ref } from 'vue';
+
+const ipAddress = ref('');
+const vpnDetails = ref(null);
+const errorMessage = ref('');
+
 const fetchVPNDetails = async () => {
   vpnDetails.value = null;
   errorMessage.value = '';
 
   try {
- 
     const response = await $fetch('/api/vpnLookup', {
       method: 'POST',
       body: { ip: ipAddress.value },
@@ -84,6 +90,7 @@ const fetchVPNDetails = async () => {
     errorMessage.value = error.message || 'An error occurred while fetching VPN details.';
   }
 };
+
 
 </script>
 
