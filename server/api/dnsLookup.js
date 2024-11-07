@@ -1,8 +1,8 @@
 import { defineEventHandler, readBody } from 'h3';
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event); // Use readBody instead of useBody
-  const { url } = body; // Expecting an object with a url property
+  const body = await readBody(event);
+  const { url } = body;
 
   if (!url) {
     return {
@@ -16,11 +16,11 @@ export default defineEventHandler(async (event) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.SITE_RELIC_API_KEY, // Use the environment variable
+        'x-api-key': process.env.SITE_RELIC_API_KEY, 
       },
       body: JSON.stringify({
         url,
-        types: ['A', 'MX'], // Adjust as necessary
+        types: ['A', 'MX'], 
       }),
     });
 
