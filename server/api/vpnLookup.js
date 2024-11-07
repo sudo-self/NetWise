@@ -1,6 +1,12 @@
 import { defineEventHandler, readBody, sendError } from 'h3';
 
 export default defineEventHandler(async (event) => {
+
+  if (event.req.method !== 'POST') {
+    return sendError(event, createError({ statusCode: 405, statusMessage: 'Method Not Allowed' }));
+  }
+
+ 
   const { ip } = await readBody(event);
 
   if (!ip) {
@@ -17,4 +23,5 @@ export default defineEventHandler(async (event) => {
     return sendError(event, createError({ statusCode: error.response?.status || 500, statusMessage: error.message }));
   }
 });
+
 
