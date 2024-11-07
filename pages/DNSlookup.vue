@@ -91,7 +91,7 @@ const fetchDNSRecords = async () => {
       throw new Error('No DNS records found for this domain');
     }
 
-    // Populate dnsRecords with response data
+  
     if (response.data.A) {
       response.data.A.forEach(record => {
         dnsRecords.value.push({
@@ -127,7 +127,7 @@ const fetchDNSRecords = async () => {
         dnsRecords.value.push({
           type: 'MX',
           value: record.exchange,
-          ttl: record.priority, // Assuming priority as TTL for display
+          ttl: record.priority,
         });
       });
     }
@@ -233,13 +233,13 @@ const fetchDNSRecords = async () => {
   margin-top: 1rem;
 }
 .record-types {
-  background-color: #1f2937; /* Slightly darker background for visibility */
+  background-color: #1f2937; 
   padding: 1rem;
   border-radius: 0.5rem;
 }
 .record-list {
-  list-style-type: none; /* Remove default list styling */
-  padding-left: 0; /* Remove default padding */
+  list-style-type: none;
+  padding-left: 0;
 }
 .input-field {
   @apply border border-gray-300 rounded p-2 w-full;
