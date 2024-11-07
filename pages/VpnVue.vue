@@ -75,7 +75,7 @@ const fetchVPNDetails = async () => {
   errorMessage.value = '';
 
   try {
-    // Send GET request to the VPN lookup API
+   
     const response = await $fetch(`/api/vpnLookup?ip_address=${ipAddress.value}`);
 
     if (!response) {
@@ -90,7 +90,7 @@ const fetchVPNDetails = async () => {
 </script>
 
 <style scoped>
-/* Add styling similar to your original DNS lookup tool */
+
 .wrapper {
   padding: 2rem;
   background-color: #0c0a09;
