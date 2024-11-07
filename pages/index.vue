@@ -130,7 +130,7 @@
                 <p class="description">VPNs Setup and configuration</p>
               </div>
               <div class="group actions">
-                <router-link to="/StatusCodes">
+                <router-link to="/VpnVue">
                   <button class="action-button">Enter</button>
                 </router-link>
               </div>
