@@ -76,7 +76,7 @@ const fetchVPNDetails = async () => {
   errorMessage.value = '';
 
   try {
-    const response = await $fetch('/api/vpnLookup', {
+    const response = await $fetch('/server/api/vpnLookup', {
       method: 'POST',
       body: { ip: ipAddress.value },
     });
